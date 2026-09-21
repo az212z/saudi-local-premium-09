@@ -25,3 +25,13 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 @media(max-width:700px){.search-box input,.category-select-label select{font-size:16px}}
+
+/* A text-only business WhatsApp link, separated from visit selections. */
+.whatsapp-float{position:fixed;left:clamp(16px,2vw,28px);bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:4;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 20px;background:var(--ink);color:var(--bg);border:1px solid var(--bg);border-radius:8px;box-shadow:0 4px 20px #0002;font-size:12px;line-height:1.7;white-space:nowrap}
+.whatsapp-float:hover{background:var(--accent);color:var(--bg)}
+body:has(.selection-bar:not([hidden])) .whatsapp-float{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+body:has(.selection-bar:not([hidden])) .toast{bottom:calc(160px + env(safe-area-inset-bottom,0px))}
+body:has(dialog[open]) .whatsapp-float{visibility:hidden}
+body:has(.whatsapp-float) footer{padding-bottom:100px}
+body:has(.selection-bar:not([hidden])) footer{padding-bottom:180px}
+@media(max-width:767px){.whatsapp-float{left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));padding-inline:17px}}
